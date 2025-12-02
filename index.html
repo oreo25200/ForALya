@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALYAAA💌</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #fff0f5 0%, #f7f7f7 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-out 0.8s, transform 1.5s ease-out 0.8s;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #a87e6e;
+            font-size: 3.5em;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #666;
+            font-weight: 400;
+            margin-top: 5px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin: 25px 0;
+            text-align: justify;
+        }
+
+        .highlight {
+            font-style: italic;
+            font-weight: 600;
+            color: #a87e6e;
+        }
+
+        .signature {
+            margin-top: 50px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5em;
+            color: #a87e6e;
+            text-align: right;
+        }
+
+        .music-embed {
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* LOCK SCREEN */
+        #lock-screen {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7f7f7;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            transition: opacity 1s ease-in;
+        }
+
+        #lock-screen h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #555;
+            letter-spacing: 3px;
+        }
+
+        #open-button {
+            background: none;
+            border: 1px solid #a87e6e;
+            color: #a87e6e;
+            padding: 10px 25px;
+            font-size: 1.1em;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 20px;
+        }
+
+        #open-button:hover {
+            background-color: #a87e6e;
+            color: white;
+        }
+
+        .show-content {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOCK SCREEN -->
+    <div id="lock-screen">
+        <h3>UNTUK ALYA</h3>
+        <button id="open-button" onclick="revealContent()">Buka Pesan</button>
+    </div>
+
+    <!-- MAIN PAGE -->
+    <div id="content-page">
+        <div class="container" id="main-content-container">
+
+            <h1>Selamat Udah berjuang</h1>
+            <h2>Hi Alya</h2>
+
+            <p>
+                Aku cuma mau bilang sedikit,selamat ya udah selesai melewati hari hari beratnya,selamat udah menuntaskan UASnya,semoga hasil perjuangan mu yang belajar dari pulang sekolah,sore,malam,pagi pagi buta bisa dapet hasil yang maksimal.
+                <span class="highlight">Selamat Udah berani Berjuang Sejauh ini.</span>
+            </p>
+
+            <p>
+              Kalau nanti hasilnya belum sesuai dengan ekspektasimu, jangan bersedih ya. Ingat, kamu sudah berusaha dan melakukan semuanya dengan maksimal. Jadi tetap happy, jangan sedih-sedih lagi, ya.<br>
+                <span class="highlight">I Proud Of You</span>
+            </p>
+
+            <p>
+                Nah, ujiannya kan udah selesai, jadi sekarang saatnya kamu rileks dulu. Kasih dirimu waktu buat leha-leha dan jadi lebih happy dari sebelumnya. Jangan patah semangat, yaa.
+            </p>
+
+            <div class="signature">
+                <p>Ingat Aku Selalu Di Belakang mu,Apapun yang terjadi.</p>
+                <!--<p>— [Nama Anda]</p>-->
+            </div>
+
+            <!-- AUDIO -->
+            <div class="music-embed">
+
+                <audio id="bg-music" loop>
+                    <source src="/music/ssstik.io_1764672061893.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function revealContent() {
+            const lockScreen = document.getElementById('lock-screen');
+            const contentContainer = document.getElementById('main-content-container');
+            const music = document.getElementById('bg-music');
+
+            // Play musik saat tombol ditekan
+            music.play().catch(err => {
+                console.log("Autoplay ditolak browser, tapi play() tetap dipicu saat klik.");
+            });
+
+            // Fade out lock screen
+            lockScreen.style.opacity = '0';
+
+            setTimeout(() => {
+                lockScreen.style.display = 'none';
+                contentContainer.classList.add('show-content');
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
+
